@@ -31,7 +31,6 @@ labels     = ['bat', 'emu']
 history = None
 test_path = learn_path + '/../test'
 
-
 ### ---- 1. Create and configure new model based on ResNet50
 def create_model():
   base_model = tf.keras.applications.ResNet50(weights='imagenet', include_top = False)
@@ -89,7 +88,6 @@ def train(learn_path):
   ## Optionally save the trained model to disk
   if save_the_model: model.save(saved_model) 
   return model
-
 
 ### ---- 3. Predict
 def predict(img_path):
@@ -159,7 +157,5 @@ def plot_training_history():
 ### -------------- MAIN
 model = train(learn_path) if train_the_model else load_model(saved_model)
 plot_training_history()  
-
 predict(img_path = "E:/gsimsek/ML/cats_dogs/val/cat.jpg")
-
 test_model(test_path, labels[0], labels[1])
